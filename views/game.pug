@@ -1,0 +1,34 @@
+extends layout
+
+block content
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js")
+  script(src="/javascripts/main.js")
+  div(id="main", style="width:800px; margin:0 auto; text-align: center")
+    h1 #{title}
+    div(id="panel")
+      button(id="btnRelease" style="height: 100px; width: 330px; font-size: 20px;") Release (#{total})
+      <br />
+      <br />
+      button(id="btnComplete0" style="height: 100px; width: 120px; font-size: 20px;") Complete
+      <span style="display:inline-block; width: 10px;"></span>
+      button(id="btnPlay0" style="height: 100px; width: 200px; font-size: 20px;") Play Level0 (#{play0})
+      <br />
+      <br />
+      button(id="btnComplete1" style="height: 100px; width: 120px; font-size: 20px;") Complete
+      <span style="display:inline-block; width: 10px;"></span>
+      button(id="btnPlay1" style="height: 100px; width: 200px; font-size: 20px;") Play Level1 (#{play1})
+      <br />
+      <br />
+      button(id="btnComplete2" style="height: 100px; width: 120px; font-size: 20px;") Complete
+      <span style="display:inline-block; width: 10px;"></span>
+      button(id="btnPlay2" style="height: 100px; width: 200px; font-size: 20px;") Play Level2 (#{play2})
+      <br />
+      <br />
+      <br />
+      <br />
+      button(id="btnKanjiBack" style="height: 50px; width: 100px; font-size: 20px;") Back
+    div(id="play")
+  input(id="hiddenHiragana" type="text" readonly="true" style="visibility: hidden;")
+  input(id="hiddenMeaning" type="text" readonly="true" style="visibility: hidden;")
+  input(id="hiddenExample" type="text" readonly="true" style="visibility: hidden;")
+

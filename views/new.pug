@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js")
+  script(src="/javascripts/main.js")
+  div(id="main", style="width:1000px; margin:0 auto; text-align: center")
+    h1 #{title}
+    div(id="div_form")
+      <span class="label_new">Kanji</span>
+      <input id='txtKanji' type='text' class="input_new"/><br /><br />
+      <span class="label_new">Hiragana</span>
+      <input id='txtHiragana' type='text' class="input_new"/><br /><br />
+      <span class="label_new">Meaning</span>
+      <input id='txtMeaning' type='text' class="input_new"/><br /><br />
+      <span class="label_new label_ex">Example</span>
+      <textarea id='txtExample' type='text' class="input_new" cols="10" rows="5"></textarea><br /><br />
+      button(id="btnNewBack" style="height: 50px; width: 100px; font-size: 20px;") Back
+      <span style='display:inline-block; width: 100px;'></span>
+      button(id="btnClear" style="height: 50px; width: 100px; font-size: 20px;") Clear
+      <span style='display:inline-block; width: 100px;'></span>
+      button(id="btnAdd" style="height: 50px; width: 100px; font-size: 20px;") Add
+    div(id="div_status")
+      <br />
+      <br />
+      <br />
+      <br />
+      <span id="lblStatus" style="display: inline-block; font-size: 20px; height: 100px;"></span>

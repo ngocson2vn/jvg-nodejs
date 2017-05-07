@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js")
+  script(src="/javascripts/main.js")
+  div(id="main", style="width:800px; margin:0 auto; text-align: center")
+    h1(class="h1_index") Welcome to #{title}
+    div(id="panel")
+      button(id="btnPlayKanji" style="height: 100px; width: 330px; font: 40px 'Times New Roman';") Play Kanji
+      <br />
+      <br />
+      button(id="btnAddNew" style="height: 100px; width: 330px; font: 40px 'Times New Roman';") Add New Kanji

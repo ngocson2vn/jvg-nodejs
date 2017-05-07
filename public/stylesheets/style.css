@@ -1,0 +1,53 @@
+body {
+  padding: 10px;
+  font: 14px "Times New Roman", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+h1 {
+  font-size: 14px;
+}
+
+.h1_index {
+  font-size: 40px;
+}
+
+.label {
+  font: 40px "Times New Roman", Helvetica, Arial, sans-serif;
+}
+
+.kanji_label {
+  font: 60px "Times New Roman", Helvetica, Arial, sans-serif;
+}
+
+.meaning {
+  color: #0000FF;
+  display: inline-block;
+  height: 250px;
+}
+
+.answer {
+  text-align: center;
+  width: 800px;
+}
+
+.input_new {
+  font: 40px "Times New Roman", Helvetica, Arial, sans-serif;
+  width: 800px;
+}
+
+.label_ex {
+  display: table-cell;
+  vertical-align: top;
+}
+
+.label_new {
+  font: 20px "Times New Roman", Helvetica, Arial, sans-serif;
+  text-align: right;
+  display: inline-block;
+  margin-right: 10px;
+  width: 80px;
+}
