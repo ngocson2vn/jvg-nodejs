@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js")
+  script(src="/javascripts/main.js")
+  div(id="main", style="width:1000px; margin:0 auto; text-align: center")
+    h1 #{title}
+    div(id="div_search")
+    <input id='txtInputKanji' type='text' class='label answer' /><br /><br />
+    <span id='lblRetKanji' class='kanji_label'></span><br />
+    <span id='lblRetHiragana' class='label'></span><br /><br />
+    <span id='lblRetMeaning' class='label'></span><br />
+    <span id='lblRetExample' class='label'></span><br />
+    <span style='display:inline-block; height: 100px;'></span>
+    <button id='btnSearchBack' style='height: 50px; width: 100px; font-size: 20px;'>Back</button>

@@ -1,5 +1,5 @@
 var sqlite3 = require('sqlite3');
-var db = new sqlite3.Database('db/jpvocab.db');
+var db = new sqlite3.Database('public/db/jpvocab.db');
 
 function countTotalVocab(cb) {
   var ret = 0;
@@ -42,6 +42,19 @@ module.exports.getCommonVocabIds = function(mode, cb) {
 module.exports.getVocab = function(id, cb) {
   var ret = {};
   db.each("SELECT * FROM leveln2 WHERE id = " + id, function(err, row) {
+    ret.id = row.id;
+    ret.kanji = row.kanji;
+    ret.hiragana = row.hiragana;
+    ret.vn = row.vn;
+    ret.ex = row.ex;
+  }, function() {
+    cb(ret);
+  });
+}
+
+module.exports.search = function(kanji, cb) {
+  var ret = {};
+  db.each("SELECT * FROM leveln2 WHERE kanji = '" + kanji + "'", function(err, row) {
     ret.id = row.id;
     ret.kanji = row.kanji;
     ret.hiragana = row.hiragana;
@@ -95,9 +108,9 @@ module.exports.completeLevel = function(mode, cb) {
 }
 
 module.exports.addNew = function(vocab, cb) {
-  var insertQuery = "INSERT INTO leveln2 VALUES (NULL, ?, ?, 'NO', ?, ?, 1)";
+  var insertQuery = "INSERT INTO leveln2 VALUES (NULL, ?, ?, 'NO', ?, ?, ?)";
 
-  db.run(insertQuery, [vocab.kanji, vocab.hiragana, vocab.vn, vocab.ex], function(err) {
+  db.run(insertQuery, [vocab.kanji, vocab.hiragana, vocab.vn, vocab.ex, vocab.hit], function(err) {
     if (!err) {
       cb(this.changes);
 
@@ -120,5 +133,18 @@ module.exports.update = function(vocab, cb) {
     } else {
       cb(0);
     }
+  });
+}
+
+module.exports.getGids = function(cb) {
+  var ret = [];
+
+  var query = "SELECT id FROM leveln2 WHERE hit = 400";
+  console.log("query = " + query);
+
+  db.each(query, function(err, row) {
+    ret.push(row.id);
+  }, function() {
+    cb(ret);
   });
 }

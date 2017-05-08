@@ -6,8 +6,10 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
-var game = require('./routes/game');
 var vocabs = require('./routes/vocabs');
+var game = require('./routes/game');
+var search = require('./routes/search');
+var grammar = require('./routes/grammar');
 
 var app = express();
 
@@ -24,8 +26,10 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-app.use('/game', game);
 app.use('/vocabs', vocabs);
+app.use('/game', game);
+app.use('/search', search);
+app.use('/grammar', grammar);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

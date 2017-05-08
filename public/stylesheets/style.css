@@ -19,6 +19,15 @@ h1 {
   font: 40px "Times New Roman", Helvetica, Arial, sans-serif;
 }
 
+.gklabel {
+  font: 40px "Times New Roman", Helvetica, Arial, sans-serif;
+  color: blue;
+}
+
+.glabel {
+  font: 30px "Times New Roman", Helvetica, Arial, sans-serif;
+}
+
 .kanji_label {
   font: 60px "Times New Roman", Helvetica, Arial, sans-serif;
 }

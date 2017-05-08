@@ -198,7 +198,7 @@ $(document).ready(function() {
 
   $("#btnComplete0").click(function() {
     var re0 = /Play Level0 \((\d+)\)/;
-    var play0 = re1.exec($("#btnPlay0").text())[1];
+    var play0 = re0.exec($("#btnPlay0").text())[1];
     if (parseInt(play0) <= 0) {
       return;
     }
@@ -293,12 +293,15 @@ $(document).ready(function() {
     vocab.hiragana = $("#txtHiragana").val();
     vocab.vn = $("#txtMeaning").val();
     vocab.ex = $("#txtExample").val();
+    vocab.hit = $("#chbxGrammar").is(':checked') ? 400 : 1;
     console.log(vocab);
     $.post("/vocabs", vocab, function(data, status) {
       if (status == 'success') {
         if (data.n > 0) {
+          $("#lblStatus").css("color", "blue");
           $("#lblStatus").text("Success");
         } else {
+          $("#lblStatus").css("color", "red");
           $("#lblStatus").text("Failed");
         }
       }
@@ -341,6 +344,32 @@ $(document).ready(function() {
 
   $("#btnKanjiBack").click(function() {
     window.location.href = "/";
+  });
+
+  $("#btnSearchBack").click(function() {
+    window.location.href = "/";
+  });
+
+  $("#btnSearchKanji").click(function() {
+    window.location.href = "/search/init";
+  });
+
+  $("#btnPlayGrammar").click(function() {
+    window.location.href = "/grammar";
+  });
+
+  $("#txtInputKanji").keypress(function(event) {
+    if (event.charCode == 13) {
+      var kanji = $("#txtInputKanji").val();
+      $.get("/search?q=" + kanji, function(vocab, status) {
+        if (status == 'success') {
+          $("#lblRetKanji").text(vocab.kanji);
+          $("#lblRetHiragana").text(vocab.hiragana);
+          $("#lblRetMeaning").html(vocab.vn.replace("\n", "<br />"));
+          $("#lblRetExample").html(vocab.ex.replace("\n", "<br />"));
+        }
+      });
+    }
   });
 
 });

@@ -1,0 +1,20 @@
+extends layout
+
+block content
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js")
+  script(src="/javascripts/grammar.js")
+  div(id="main", style="width:1000px; margin:0 auto; text-align: center")
+    h1 #{title}
+    div(id="div_grammar")
+    <span id='lblGIndex'></span><br /><br />
+    <span id='lblGKanji' class='gklabel'></span><br />
+    <span id='lblGHiragana' class='glabel'></span><br /><br />
+    <span id='lblGMeaning' class='glabel'></span><br />
+    <span id='lblGExample' class='glabel'></span><br />
+  <span style='display:inline-block; height: 50px;'></span>
+  div(id="main", style="width:1000px; margin:0 auto; text-align: center")
+    <button id='btnGrammarBack' style='height: 50px; width: 100px; font-size: 20px;'>Back</button>
+    <span style='display:inline-block; width: 100px;'></span>
+    <button id='btnGrammarPrev' style='height: 50px; width: 100px; font-size: 20px;'>Prev</button>
+    <span style='display:inline-block; width: 100px;'></span>
+    <button id='btnGrammarNext' style='height: 50px; width: 100px; font-size: 20px;'>Next</button>
